@@ -15,7 +15,7 @@ export default function PlayingMusic({musicData, updateLike}) {
         }
     }
 
-    const like = event => {
+    const like = () => {
 
         const isLike = musicData[currentMusic].likeByUser;
         
@@ -45,7 +45,7 @@ export default function PlayingMusic({musicData, updateLike}) {
                   <p class="musicName">{musicData[currentMusic].name}</p>
                   <p class="musicAuthor">{musicData[currentMusic].author}</p>
                 </div>
-                    {musicData.likeByUser 
+                    {musicData[currentMusic].likeByUser 
                         ? <i class="fa-solid fa-heart musicLikeTrue" onClick={like}></i>
                         : <i class="fa-regular fa-heart musicLike" onClick={like}></i>
                     }
