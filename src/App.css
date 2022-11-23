@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1c1b1b;
+  font-family: 'Noto sans';
+}
+
+.headBar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.headIcon {
+  color: white;
+  font-size: 20px;
+  width: 10px;
+  text-align: center;
+}
+
+.nowPlaying {
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.musicImage {
+  width: 335px;
+  height: 370px;
+  border-radius: 30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.music-Name-Author-Like {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.music-Name-Author {
+  font-size: 18px;
+}
+
+.musicName {
+  color: #ffffff;
+}
+
+.musicAuthor {
+  color: grey;
+}
+
+.musicLike {
+  font-size: 20px;
+  color: grey;
+}
