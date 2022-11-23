@@ -1,7 +1,27 @@
+import { useState } from "react";
+
 export default function PlayingMusic({musicData}) {
 
+    const [currentMusic, setCurrentMusic] = useState(0);
+    const [currentLike, setCurrentLike] = useState(0);
+
+    const statement = (value) => {
+
+        let newMusic = currentMusic + value;
+        const maxRange = musicData.length;
+
+        if (newMusic >= 0 && newMusic < maxRange)
+        {
+            setCurrentMusic(newMusic);
+        }
+    }
+
+    const like = (value) => {
+
+    }
+
     return (
-        <div class="page">
+        <div>
           <div class="headBar">
             <div class="playingMusic">
               <i class="fa-solid fa-angle-left headIcon"></i>
@@ -10,11 +30,11 @@ export default function PlayingMusic({musicData}) {
               <i class="fa-solid fa-ellipsis-vertical headIcon"></i>
           </div>
           <div class="music">
-          <img src="" alt="musicImage" class="musicImage"/>
+          <img src={musicData[currentMusic].image} alt="musicImage" class="musicImage"/>
               <div class="music-Name-Author-Like">
                 <div class="music-Name-Author">
-                  <p class="musicName">Shape Of You</p>
-                  <p class="musicAuthor">Ed Sheeran</p>
+                  <p class="musicName">{musicData[currentMusic].name}</p>
+                  <p class="musicAuthor">{musicData[currentMusic].author}</p>
                 </div>
                   <i class="fa-regular fa-heart musicLike"></i>
               </div>
@@ -26,9 +46,9 @@ export default function PlayingMusic({musicData}) {
           </div>
           <div class="buttonsMusic">
             <i class="fa-solid fa-repeat repeat"></i>
-            <i class="fa-solid fa-backward previous"></i>
+            <i class="fa-solid fa-backward previous" onClick={() => statement(-1)}></i>
             <i class="fa-regular fa-circle-play playMusic"></i>
-            <i class="fa-solid fa-forward next"></i>
+            <i class="fa-solid fa-forward next" onClick={() => statement(1)}></i>
             <i class="fa-solid fa-shuffle shuffle"></i>
           </div>
           <div class="lyricsFooter">
