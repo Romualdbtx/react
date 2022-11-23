@@ -1,18 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
 
+:root {
+  --grey: rgb(150, 150, 150);
+}
+
 body {
   margin: 0;
   padding: 0;
-  background-color: #1c1b1b;
   font-family: 'Noto sans';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* background-color: #000000; */
+}
+
+.page {
+  background-color: #1c1b1b;
+  width: 390px;
+  height: 844px;
+  border-radius: 80px;
+  padding: 15px;
 }
 
 .headBar {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  padding-left: 25px;
-  padding-right: 25px;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-bottom: 10px;
 }
 
 .headIcon {
@@ -23,7 +40,7 @@ body {
 }
 
 .nowPlaying {
-  font-size: 20px;
+  font-size: 18px;
   color: #ffffff;
 }
 
@@ -40,8 +57,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-left: 25px;
-  padding-right: 25px;
+  margin-left: 25px;
+  margin-right: 25px;
 }
 
 .music-Name-Author {
@@ -53,10 +70,67 @@ body {
 }
 
 .musicAuthor {
-  color: grey;
+  color: var(--grey);
 }
 
 .musicLike {
   font-size: 20px;
-  color: grey;
+  color: var(--grey);
+}
+
+.chargeBar
+{
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-top: 25px;
+}
+
+.musicTime
+{
+  display: flex;
+  justify-content: space-between;
+  margin-left: 25px;
+  margin-right: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--grey);
+}
+
+.buttonsMusic {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 50px;
+}
+
+.buttonsMusic .playMusic {
+  color: #42c83c;
+  font-size: 50px;
+}
+
+.buttonsMusic .previous, .buttonsMusic .next {
+  color: var(--grey);
+  font-size: 20px;
+}
+
+.buttonsMusic .repeat, .buttonsMusic .shuffle {
+  color: rgba(128, 128, 128, 0.479);
+}
+
+.lyricsFooter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.lyricsFooter .lyrics {
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.lyricsFooter .arrowUp {
+  color: var(--grey);
 }

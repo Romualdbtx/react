@@ -1,26 +1,20 @@
 import './App.css';
-import shapeOfYou from './shapeOfYou.png';
+import { useState } from 'react';
+import PlayingMusic from './components/playingMusic';
+import shapeOfYou from './images/shapeOfYou.png';
+import despacito from './images/despacito.png';
+
+const [musics] = ([
+  {id: 1, author: "Ed Sheeran", name: "shapeOfYou", time: 300, image: {shapeOfYou}},
+  {id: 2, author: "Luis Fonsi", name: "Despacito", time: 420, image: {despacito}}
+]);
 
 function App() {
   return (
-    <div>
-      <div class="headBar">
-        <div class="playingMusic">
-          <i class="fa-solid fa-angle-left headIcon"></i>
-        </div>
-        <p class="nowPlaying">Now playing</p>
-          <i class="fa-solid fa-ellipsis-vertical headIcon"></i>
-      </div>
-      <div class="music">
-      <img src={shapeOfYou} alt="musicImage" class="musicImage"/>
-          <div class="music-Name-Author-Like">
-            <div class="music-Name-Author">
-              <p class="musicName">Shape Of You</p>
-              <p class="musicAuthor">Ed Sheeran</p>
-            </div>
-              <i class="fa-regular fa-heart musicLike"></i>
-          </div>
-      </div>
+    <div class="page">
+      <PlayingMusic
+        musicData={musics[0]}
+      />
     </div>
   );
 }
