@@ -5,18 +5,31 @@ import shapeOfYou from './images/shapeOfYou.png';
 import despacito from './images/despacito.png';
 import gamnanStyle from './images/gamnanStyle.png';
 
+// Je n'arrive pas à importer les images au niveau du composent 'playingMusic"
+/* Quand on clique sur le coeur il est censé changer d'état et devenir rose,
+la valeur 'likeByUser' de la musique en question est changée avec*/
+// On peu changer les musiques avec les flèches, droite/gauche.
+
 function App() {
 
-  const [musics] = useState ([
-    {id: 1, author: "Ed Sheeran", name: "ShapeOfYou", time: 300, image: {shapeOfYou}},
-    {id: 2, author: "Luis Fonsi", name: "Despacito", time: 420, image: {despacito}},
-    {id: 3, author: "Park Jae Sang", name: "GamnanStyle", time: 280, image: {gamnanStyle}}
+  const [musics, setMusics] = useState ([
+    {id: 1, author: "Ed Sheeran", name: "ShapeOfYou", time: 300, image: {shapeOfYou}, likeByUser: false},
+    {id: 2, author: "Luis Fonsi", name: "Despacito", time: 420, image: {despacito}, likeByUser: false},
+    {id: 3, author: "Park Jae Sang", name: "GamnanStyle", time: 280, image: {gamnanStyle}, likeByUser: false}
   ]);
+
+  const updateLike = (currentMusic, currentLike) => {
+    const musicsCopy = [...musics];
+    const index = musicsCopy.indexOf(currentMusic);
+    musicsCopy[index].likeByUser = currentLike;
+    setMusics(musicsCopy);
+  }
 
   return (
     <div class="page">
       <PlayingMusic
         musicData={musics}
+        updateLike={updateLike}
       />
     </div>
   );

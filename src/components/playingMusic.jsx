@@ -1,9 +1,8 @@
 import { useState } from "react";
 
-export default function PlayingMusic({musicData}) {
+export default function PlayingMusic({musicData, updateLike}) {
 
     const [currentMusic, setCurrentMusic] = useState(0);
-    const [currentLike, setCurrentLike] = useState(0);
 
     const statement = (value) => {
 
@@ -16,8 +15,18 @@ export default function PlayingMusic({musicData}) {
         }
     }
 
-    const like = (value) => {
+    const like = event => {
 
+        const isLike = musicData[currentMusic].likeByUser;
+        
+        if (isLike)
+        {
+            updateLike(musicData[currentMusic], false);
+        }
+        else if (!isLike)
+        {
+            updateLike(musicData[currentMusic], true);
+        }
     }
 
     return (
@@ -36,7 +45,10 @@ export default function PlayingMusic({musicData}) {
                   <p class="musicName">{musicData[currentMusic].name}</p>
                   <p class="musicAuthor">{musicData[currentMusic].author}</p>
                 </div>
-                  <i class="fa-regular fa-heart musicLike"></i>
+                    {musicData.likeByUser 
+                        ? <i class="fa-solid fa-heart musicLikeTrue" onClick={like}></i>
+                        : <i class="fa-regular fa-heart musicLike" onClick={like}></i>
+                    }
               </div>
           </div>
           <div class="chargeBar"></div>
