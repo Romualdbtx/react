@@ -6,9 +6,8 @@ import despacito from './images/despacito.png';
 import gamnanStyle from './images/gamnanStyle.png';
 
 // Je n'arrive pas à importer les images au niveau du composent 'playingMusic"
-/* Quand on clique sur le coeur il est censé changer d'état et devenir rose,
-la valeur 'likeByUser' de la musique en question est changée avec*/
 // On peu changer les musiques avec les flèches, droite/gauche.
+// On peu j'aime les musiques yaouuu.
 
 function App() {
 
